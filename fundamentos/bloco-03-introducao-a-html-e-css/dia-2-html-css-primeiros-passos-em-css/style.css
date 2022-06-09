@@ -13,18 +13,26 @@ p{
     font-size: 3em;
 }
 
-#list-style{
+ul{
     background-color: grey;
     font-style: italic;
     line-height: 1.5em;
     text-align: center;
-    text-decoration: line-through;
+    text-decoration: underline;
 }
 
 .bg-blue{
     background-color: aquamarine;
 }
-
-li{
-    background: darkgray;
+.bg-yellow{
+    background-color: yellow;
+    font-weight: 600;
+}
+.bg-red{
+    background-color: red;
+    font-weight: 600;
+}
+.bg-brown{
+    background-color: brown;
+    font-weight: 600;
 }
