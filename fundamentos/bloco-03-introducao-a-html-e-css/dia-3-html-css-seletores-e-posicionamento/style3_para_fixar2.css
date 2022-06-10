@@ -1,0 +1,52 @@
+div:hover {
+    border: 5px solid black;
+}
+
+/* Cada div com sua cor própria de bg */
+div:first-of-type {
+    background-color: yellow;
+}
+
+div:nth-of-type(2) {
+    background-color: lightgreen;
+}
+
+div:nth-of-type(3) {
+    background-color: lightpink;
+    height: 50px;
+}
+
+div:nth-of-type(4) {
+    background-color: darkcyan;
+}
+
+div:nth-of-type(5) {
+    background-color: antiquewhite;
+}
+
+/* estilizar cada uma das tags h3 */
+div:first-of-type h3{
+    color: blue;
+}
+
+div:nth-of-type(2) h3 {
+    color: purple;
+}
+
+div:nth-of-type(3) h3 {
+    color: rgb(237, 98, 98);
+    height: 50px;
+}
+
+div:nth-of-type(4) h3 {
+    color: rgb(200, 226, 226);
+}
+
+div:nth-of-type(5) h3 {
+    color: rgb(222, 144, 41);
+}
+
+/* tags impares h3 em italico */
+div:nth-of-type(2n+1) h3 {
+    font-style: italic;
+}
