@@ -112,7 +112,12 @@ table, th, td {
 table {
     width: 90%;
     text-align: center;
-    margin: 0 50px;
+    margin: 50px 50px 0 50px;
+}
+
+caption {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 th {
