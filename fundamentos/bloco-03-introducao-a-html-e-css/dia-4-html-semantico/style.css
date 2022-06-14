@@ -1,21 +1,31 @@
-body {
+* {
     margin: 0;
 }
 
 .header-title{
-    text-align: center;
+    height: 550px;
+    text-align: right;
+    margin: 60px 0 45px 0;
+    background-image: url("https://media.wired.com/photos/60300b7b091d7b01b7e2080b/16:9/w_2399,h_1349,c_limit/Science_mantisshrimp-1061398692.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .header-title h1 {
-    margin-top: 70px;
-    color: #064789;
+    color: #091049;
+    display: inline-block;
+    width: 520px;
+    margin-right: 40px;
+    margin-top: 410px;
+    font-size: 50px;
 }
 
 .sticky {
     margin-top: 0;
     width: 100%;
     height: 60px;
-    background-color: #064789;
+    background-color: #091049;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -24,7 +34,7 @@ body {
 .nav-header {
     list-style-type: none;
     margin-left: 50px;
-    padding: 0;
+    padding: 16px;
 }
 
 .nav-header li {
@@ -39,6 +49,12 @@ body {
     font-weight: 700;
 }
 
+.nav-header li a:hover {
+    /* text-decoration: none; */
+    color: #427aa1;
+    /* font-weight: 700; */
+    transform: scale(1.5);
+}
 
 .sub-title{
     color: #427aa1;
@@ -56,12 +72,17 @@ aside {
     vertical-align: top;
 }
 
+aside p {
+    margin-bottom: 10px;
+}
+
 .main-title{
-    margin-bottom: 0;
+    margin: 0px 0 20px 50px;
+
 }
 
 .align-left {
-    margin-left: 50px
+    margin: 35px 0 20px 50px;
 }
 
 .description-content-1 {
@@ -102,10 +123,12 @@ th {
 
 .img-left {
     float: left;
+    top: -5px;
 }
 
 .align-right {
     margin-left: 20px;
+    margin-top: 30px;    
 }
 
 .highlight {
@@ -116,6 +139,7 @@ th {
 .references {
     padding-left: 0;
     margin-left: 20px;
+    margin-top: 10px;
 }
 
 .references li a {
@@ -126,7 +150,7 @@ th {
 .footer {
     background-color: #ebf2fa;
     color: black;
-    padding: 3px;
+    padding: 30px 50px;
     margin-top: 30px;
 }
 
