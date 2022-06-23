@@ -55,13 +55,13 @@ if (isPositive > 0) {
 // 5 - Faça um programa que defina três constantes com os valores dos três ângulos internos de um triângulo. Retorne true se os ângulos representarem os ângulos de um triângulo e false, caso contrário. Se algum ângulo for inválido o programa deve retornar uma mensagem de erro.
 
 const angle1 = 158;
-const angle2 = 20;
-const angle3 = 1;
+const angle2 = 21;
+const angle3 = 10;
 
 let isTriangle = "";
 
-if (angle1 < 0 || angle2 < 0 || angle3 < 0) {
-    console.log("Erro: valores negativos são inválidos");
+if (angle1 <= 0 || angle2 <= 0 || angle3 <= 0) {
+    console.error("Valores negativos ou zerados são inválidos");
 } else if ( angle1 + angle2 + angle3 === 180) {
     isTriangle = true;
     console.log(isTriangle);
@@ -103,7 +103,7 @@ let nota = 41;
 let conceito = "";
 
 if (nota > 100 || nota < 0) {
-    conceito = "Erro: Nota Inválida";
+    conceito = "Nota Inválida";
 } else if (nota >= 90) {
     conceito = "A";
 } else if (nota >= 80) {
@@ -160,7 +160,7 @@ console.log(isOdd);
 
 // lucro = valorVenda - valorCustoTotal (lucro de um produto)
 
-const custoProduto = 10;
+const custoProduto = -10;
 const valorVendaProduto = 50;
 const qtdVendida = 1000;
 
@@ -171,7 +171,7 @@ let valorCustoTotal = custoProdutoComImposto * qtdVendida;
 let valorTotalVendido = valorVendaProduto * qtdVendida;
 
 if (custoProduto < 0 || valorVendaProduto < 0 || qtdVendida < 0) {
-    lucro = "Erro: valores de entrada menores que zero"
+    console.error("Erro: valores de entrada menores que zero");
 } else {
     lucro = valorTotalVendido - valorCustoTotal
 }
