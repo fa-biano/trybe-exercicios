@@ -30,7 +30,7 @@ for (let index = 1 ; index <= formaGeometrica3; index += 1) {
 }
 
 // 4 - Depois, faça uma pirâmide com n asteriscos de base:
-let formaGeometrica4 = 5;
+let formaGeometrica4 = 11;
 let asteriscos4 = "*";
 
 let espacos4 = " ";
@@ -42,9 +42,7 @@ for (let index = 1 ; index <= (Math.ceil(formaGeometrica4 /2)); index += 1) {
     } else {
         countEspaco = (formaGeometrica4 / 2) - (index -1);
     }
-
-    let asteriscoFixo = "*";
-
+    
     if (index == 1) {
         countAsterico = 0;
     } else {
@@ -53,10 +51,43 @@ for (let index = 1 ; index <= (Math.ceil(formaGeometrica4 /2)); index += 1) {
 
     let repetirEspacos = espacos4.repeat(countEspaco)
     let concatenar = asteriscos4.repeat(countAsterico);
-    console.log(repetirEspacos + asteriscoFixo + concatenar + repetirEspacos);
+    console.log(repetirEspacos + asteriscos4 + concatenar + repetirEspacos);
 }
 
 // 5 - Faça uma pirâmide com n asteriscos de base que seja vazia no meio. Assuma que o valor de n será sempre ímpar:
+
+let formaGeometrica5 = 7;
+let asteriscos5 = "*";
+
+let espacos5 = " ";
+
+for (let index = 0; index < (Math.ceil(formaGeometrica5 /2)); index += 1){
+    if (index == 0) {
+        let countEspaco = formaGeometrica5 /2
+        let repetirEspacos = espacos5.repeat(countEspaco)
+        console.log(repetirEspacos + asteriscos5 + repetirEspacos);
+
+    } else if (index == (Math.ceil(formaGeometrica5 /2)) -1) {
+        let concatenar = asteriscos5.repeat(formaGeometrica5)
+        console.log(concatenar);
+
+    } else if (index == 1) {
+        let countEspacoExterno = (formaGeometrica5 - 3) / 2;
+        let repetirEspacoExterno = espacos5.repeat(countEspacoExterno)
+
+        let countEspacoInterno = 0;
+        if (index == 1) {
+            countEspacoInterno = 1;
+        } else {
+            countEspacoInterno += 2;
+        }
+
+        repetirEspacoInterno = espacos5.repeat(countEspacoInterno)
+        // repetirEspacos = espacos5.repeat(countEspaco)
+        console.log(repetirEspacoExterno + asteriscos5 + espacos5 + asteriscos5 + repetirEspacoExterno);
+    }
+}
+
 
 // 6 - Faça um programa que diz se um número definido numa variável é primo ou não.
 
