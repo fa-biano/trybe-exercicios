@@ -122,3 +122,19 @@ let somatoria = somatoriaNumeros(numNatural);
 console.log(somatoria);
 
 // 7 - Crie uma função que receba uma string word e outra string ending. Verifique se a string ending é o final da string word. Considere que a string ending sempre será menor que a string word.
+
+function verificaFimPalavra(string1, string2) {
+  let verificacao = false;
+  if (
+    string1.length > string2.length &&
+    string1[string1.length -1] === string2[string2.length -1] &&
+    string1[string1.length -2] === string2[string2.length -2]
+  ){
+    verificacao = true;
+  }
+  return verificacao;
+}
+
+let stringWord = 'trybe';
+let stringEnd = 'be';
+console.log(verificaFimPalavra(stringWord, stringEnd));
