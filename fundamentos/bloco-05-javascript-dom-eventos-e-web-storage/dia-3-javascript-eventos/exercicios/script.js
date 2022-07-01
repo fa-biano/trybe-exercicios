@@ -97,7 +97,7 @@ buttonsContainer.children[1].addEventListener('click', setSextou)
 // Exercício 6:
 let dayToZoom = document.querySelectorAll('.day');
 
-function setZoomDay(event) {
+function setZoomDay() {
     for (let index = 0; index < dayToZoom.length; index += 1) {
         dayToZoom[index].addEventListener('mouseover', () => {
             dayToZoom[index].style.transform = 'scale(1.4)';
