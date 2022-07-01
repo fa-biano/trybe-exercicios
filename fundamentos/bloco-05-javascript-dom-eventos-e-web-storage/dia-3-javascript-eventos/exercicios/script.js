@@ -82,7 +82,6 @@ function createButton2(parent, child, addId, addName) {
 createButton2(buttonsContainer, buttonTag2, 'btn-friday', 'Sexta-feira');
 
 // Exercício 5:
-
 function setSextou() {
     let fridaysClass = document.querySelectorAll('.friday')
     for (let index = 0; index < fridaysClass.length; index += 1) {
@@ -94,3 +93,21 @@ function setSextou() {
     }
 }
 buttonsContainer.children[1].addEventListener('click', setSextou)
+
+// Exercício 6:
+let dayToZoom = document.querySelectorAll('.day');
+
+function setZoomDay(event) {
+    for (let index = 0; index < dayToZoom.length; index += 1) {
+        dayToZoom[index].addEventListener('mouseover', () => {
+            dayToZoom[index].style.transform = 'scale(1.4)';
+        })
+
+        dayToZoom[index].addEventListener('mouseleave', () => {
+            dayToZoom[index].style.transform = 'scale(1.0)';
+        })
+    }
+}
+setZoomDay();
+
+// Exercício 7:
