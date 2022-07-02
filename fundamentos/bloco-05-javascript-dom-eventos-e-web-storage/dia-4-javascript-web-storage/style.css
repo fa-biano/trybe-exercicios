@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  border-bottom: 2px solid black;
+}
+
+main {
+  text-align: center;
+  width: 60%;
+  margin-left: 75px;
+  display: inline-block;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 0 50px;
+}
+
+h2 {
+  margin: 25px 0 25px;
+}
+
+p {
+  line-height: 25px;
+}
+
+aside {
+  width: 30%;
+  position: absolute;
+  right: 0;
+  top: 25%;
+}
+
+aside .aside-container {
+  margin-left: 50px;
+}
+
+.custom-container {
+  padding: 10px 0;
+}
+.custom-container h3 {
+  margin-bottom:  10px;
+}
+
+.custom-title {
+  font-style: italic;
+}
+
+.circle {
+  padding: 12px;
+  max-width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  border: 1px solid gray;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.white-bg {
+  background-color: white;
+  
+}
+
+.blue-bg {
+  background-color: blue;
+}
+
+ul li {
+  display: inline;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.hover:hover {
+  cursor: pointer;
+  transition: 300ms;
+  transform: scale(1.2);
+  color: darkcyan;
+}
+
+.pequeno {
+  font-size: 0.8em;
+}
+
+.medio {
+  font-size: 1.1em;
+}
+
+.grande {
+  font-size: 1.5em;
+}
+
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.times {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.cursive {
+  font-family: cursive;
+}
