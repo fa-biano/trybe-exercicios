@@ -6,6 +6,14 @@ let lineHeightOptions = document.getElementById('line-height');
 let paragraghs = document.getElementsByTagName('p')
 let fontFamilyOptions = document.getElementById('font-family');
 
+let customSetting = {
+  bgColor: 'white',
+  colorText: 'black',
+  textSize: '1em',
+  lineHeight: '25px',
+  fontFamily: 'Times New Roman',
+};
+
 function changeBgColor(event) {
   let setBgColor
   for (let index = 0; index < colorOption.children.length; index += 1) {
@@ -21,6 +29,8 @@ function changeBgColor(event) {
   }
 
   body.style.backgroundColor = setBgColor;
+  customSetting.bgColor = setBgColor;
+  refreshLocalStorage();
 }
 
 function changeColorText(event) {
@@ -38,6 +48,8 @@ function changeColorText(event) {
   } 
   
   body.style.color = setColorText;
+  customSetting.colorText = setColorText;
+  refreshLocalStorage();
 }
 
 function changeFontSize(event) {
@@ -54,6 +66,8 @@ function changeFontSize(event) {
     }
   }
   body.firstElementChild.nextElementSibling.style.fontSize = setTextSize;
+  customSetting.textSize = setTextSize;
+  refreshLocalStorage();
 }
 
 function changeLineHeight(event) {
@@ -73,6 +87,9 @@ function changeLineHeight(event) {
   for (let paragragh of paragraghs) {
     paragragh.style.lineHeight = setLineHeight
   }
+
+  customSetting.lineHeight = setLineHeight;
+  refreshLocalStorage();
 }
 
 function changeFontFamily(event) {
@@ -82,7 +99,7 @@ function changeFontFamily(event) {
       if (index === 0) {
         setFontFamily = 'Arial'
       } else if (index === 1) {
-        setFontFamily = '"Times New Roman"'
+        setFontFamily = 'Times New Roman'
       } else {
         setFontFamily = 'cursive'
       }
@@ -90,6 +107,13 @@ function changeFontFamily(event) {
   }
   body.children[0].style.fontFamily = setFontFamily;
   body.children[1].style.fontFamily = setFontFamily;
+  customSetting.fontFamily = setFontFamily;
+  refreshLocalStorage();
+}
+
+function refreshLocalStorage() {
+  localStorage.setItem('pageStyle', JSON.stringify(customSetting));
+  console.log(localStorage);
 }
 
 colorOption.addEventListener('click', changeBgColor);
@@ -97,3 +121,15 @@ colorTextOption.addEventListener('click', changeColorText);
 fontSizeOptions.addEventListener('click', changeFontSize);
 lineHeightOptions.addEventListener('click', changeLineHeight);
 fontFamilyOptions.addEventListener('click', changeFontFamily);
+
+window.onload = function () {
+  customSetting = JSON.parse(localStorage.getItem('pageStyle'));
+  body.style.backgroundColor = customSetting.bgColor
+  body.style.color = customSetting.colorText;
+  body.firstElementChild.nextElementSibling.style.fontSize = customSetting.textSize;
+  for (let paragragh of paragraghs) {
+    paragragh.style.lineHeight = customSetting.lineHeight
+  }
+  body.children[0].style.fontFamily = customSetting.fontFamily;
+  body.children[1].style.fontFamily = customSetting.fontFamily;
+}
