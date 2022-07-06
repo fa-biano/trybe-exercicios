@@ -111,3 +111,81 @@ function setZoomDay() {
 setZoomDay();
 
 // Exercício 7:
+let taskContainer = document.querySelector('.my-tasks');
+
+function addNewTask() {
+    let span = document.createElement('span')
+    span.innerText = 'Projeto';
+    taskContainer.appendChild(span)
+}
+
+addNewTask();
+
+// Exercício 8:
+function subtitleColor() {
+    let div = document.createElement('div');
+    div.classList.add('task');
+    div.style.backgroundColor = 'green';
+    taskContainer.appendChild(div);
+}
+
+subtitleColor();
+
+// Exercício 9:
+let colorFlag = document.querySelector('.task');
+let hasSelected = false;
+
+function toggleClassSelected() {
+    if (colorFlag.classList.contains('selected')) {
+        colorFlag.classList.remove('selected')
+        hasSelected = false;
+    } else {
+        colorFlag.classList.add('selected');
+        hasSelected = true;
+    }
+    // console.log(hasSelected);
+    return
+}
+
+colorFlag.addEventListener('click', toggleClassSelected);
+
+// Exercício 10:
+function printTaskColor(event) {
+    if (hasSelected === true) {
+        let color = window.getComputedStyle(colorFlag, null).getPropertyValue('background-color');
+        for (let index = 0; index < ulOfDays.children.length; index += 1) {
+            if (event.target === ulOfDays.children[index]) {
+                if (ulOfDays.children[index].style.color !== color) {
+                    ulOfDays.children[index].style.color = color;
+                } else {
+                    ulOfDays.children[index].style.color = 'rgb(119,119,119)'
+                }
+            }
+        }
+    }
+}
+
+ulOfDays.addEventListener('click', printTaskColor);
+
+// Exercício Bonus:
+let taskInput = document.getElementById('task-input');
+let btnInput = document.getElementById('btn-add');
+let appointment = document.querySelector('.task-list')
+
+function addNewAppointment() {
+    let li = document.createElement('li');
+    li.innerText = taskInput.value;
+    if (taskInput.value === '') {
+        alert('Adicione algum compromisso.')
+    } else {
+        appointment.appendChild(li);
+        taskInput.value = '';
+    }
+}
+
+btnInput.addEventListener('click', addNewAppointment);
+taskInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        addNewAppointment();  
+    }
+});
