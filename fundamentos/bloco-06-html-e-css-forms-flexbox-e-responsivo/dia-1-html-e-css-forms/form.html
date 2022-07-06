@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concorra a uma viagem no TrybeTrip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="header-form">
+    <h1>Concurso TrybeTrip</h1>
+  </header>
+  <form action="" method="get">
+    <div class="form-container">
+      <div>
+        <label for="nome-completo">Nome:</label>
+        <input type="text" id="nome-completo" name="nome">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+      </div>
+      <fieldset>
+        <legend>Qual seu destino favorito?</legend>
+        <label for="destino-cidade">
+          <input type="radio" id="destino-cidade" name="destino">
+          Cidade
+        </label>
+        <label for="destino-campo">
+          <input type="radio" id="destino-campo" name="destino">
+          Campo
+        </label>
+        <label for="destino-praia">
+          <input type="radio" id="destino-praia" name="destino">
+          Praia
+        </label>
+        <label for="destino-montanha">
+          <input type="radio" id="destino-montanha" name="destino">
+          Montanha
+        </label>
+      </fieldset>
+      <p>Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</p>
+      <textarea name="justificativa" id="justificativa" cols="80" rows="15"></textarea>
+
+      <p>Qual a melhor data para realizar sua viagem?</p>
+      <label for="data-escolhida">Data:</label>
+      <input type="date" id="data-escolhida">
+
+      <div>
+        <input type="checkbox">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+      </div>
+      <div>
+        <input type="checkbox">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
+      </div>
+      
+      <button type="submit" id="btn-submit">Enviar</button>
+      <button type="reset" id="btn-clear-form">Limpar</button>
+    </div>
+  </form>
+  <script src="script_form.js"></script>
+</body>
+</html>
