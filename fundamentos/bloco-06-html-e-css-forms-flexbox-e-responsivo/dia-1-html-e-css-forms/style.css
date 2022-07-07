@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header-form {
+  text-align: center;
+  width: 70%;
+  margin: 20px 0;
+}
+
+#form-container {
+  margin: auto;
+  width: 70%;
+}
+
+.form-container-line {
+  max-width: 530px;
+  margin-bottom: 18px;
+}
+
+.form-container-line p {
+  margin-bottom: 5px;
+
+}
+
+.form-container-line fieldset legend {
+  margin: 0 0 10px 5px;
+}
+
+.radio {
+  margin-left: 10px;
+}
+
+#email, #nome-completo{
+  width: 100%;
+}
+
+.autorizacoes {
+  max-width: 650px;
+  margin-bottom: 5px;
+}
+
+button {
+  margin: 25px 25px 10px 0;
+  padding: 5px 50px;
+}
