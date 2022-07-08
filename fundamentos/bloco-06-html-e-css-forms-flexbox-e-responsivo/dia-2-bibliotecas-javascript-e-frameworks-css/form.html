@@ -6,18 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concorra a uma viagem no TrybeTrip</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body>
-  <main class="container w-50">
-    <header class="container text-center my-4">
+<body class="bg-secondary">
+  <main class="container w-50 bg-light  py-2">
+    <header class="container text-center mb-4">
       <h1>Concurso TrybeTrip</h1>
     </header>
     <div class="container">
-      <form action="" method="get">
+      <form id="form" action="" method="get">
         <div>
           <label class="form-label" for="nome-completo">Nome completo:</label>
           <input class="form-control mb-3" type="text" id="nome-completo" name="nome" minlength="10" maxlength="40"
@@ -58,7 +59,7 @@
         <div>
           <p>Qual a melhor data para realizar sua viagem?</p>
           <!-- <label class="form-label" for="data-escolhida">Data:</label> -->
-          <input class="form-control mb-3" type="date" id="data-escolhida">
+          <input class="form-control mb-3 w-50" type="text" id="data-escolhida">
         </div>
 
         <div class="mb-2">
@@ -76,9 +77,59 @@
       </form>
     </div>
   </main>
-
+  
   <script src="script_form.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <script>
+    var picker = new Pikaday({
+      field: document.getElementById('data-escolhida'),
+      format: 'D/M/YYYY',
+      toString(date, format) {
+        // you should do formatting based on the passed format,
+        // but we will just return 'D/M/YYYY' for simplicity
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      },
+      parse(dateString, format) {
+        // dateString is the result of `toString` method
+        const parts = dateString.split('/');
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const year = parseInt(parts[2], 10);
+        return new Date(year, month, day);
+      }
+    });
+</script>
+
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+<script>
+  const validation  = new window.JustValidate('#form');
+  validation
+  .addField('#nome-completo', [
+    {
+      rule: 'minLength',
+      value: 10,
+    },
+    {
+      rule: 'maxLength',
+      value: 40,
+    },
+  ])
+  .addField('#email', [
+    {
+      rule: 'required',
+      errorMessage: 'Email is required',
+    },
+    {
+      rule: 'email',
+      errorMessage: 'Email is invalid!',
+    },
+  ]);
+</script>
+
 </body>
 
 </html>
