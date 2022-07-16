@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-box {
+      display: flex;
+      width: 400px;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-box">
+    <button id="clickor">Clique-me</button>
+    <p>Fui clicado:</p>
+    <p id="click-count"></p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('clickor');
+    let count = 0
+    btn.addEventListener('click', () => {
+      count += 1
+      refreshClick();
+    })
+
+    const refreshClick = () => {
+      const result = document.getElementById('click-count');
+      if (count > 1) {
+        result.innerText = `${count} vezes`;
+      } else {
+        result.innerText = `${count} vez`;
+      }
+    }
+  </script>
+</body>
+</html>
