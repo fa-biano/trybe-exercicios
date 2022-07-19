@@ -1,4 +1,4 @@
-const {sum, myRemove, myFizzBuzz} = require('./sum');
+const {sum, myRemove, myFizzBuzz, encode, decode} = require('./sum');
 
 describe('Testes da função sum:', () => {
   test('avalia sum(4, 5) é 9', () => {
@@ -51,5 +51,39 @@ describe('Testes da função myFizzBuzz: ', () => {
 
   test('verifica se myFizzBuss(a) é divisivel por 3 e 5 (false)', () => {
     expect(myFizzBuzz('a')).toBeFalsy();
+  });
+})
+
+describe('Testes das funções encode e decode ', () => {
+  test('verifica se enconde é uma função', () => {
+    expect(typeof encode).toBe('function');
+  });
+
+  test('verifica se decode é uma função', () => {
+    expect(typeof decode).toBe('function');
+  });
+
+  test('verifica se enconde transforma as vogais aeiou em 12345', () => {
+    expect(encode('aeiou')).toBe('12345');
+  });
+
+  test('verifica se decode transforma os numeros 12345 em aeiou', () => {
+    expect(decode('12345')).toBe('aeiou');
+  });
+
+  test('verifica se enconde transforma outras letras', () => {
+    expect(encode('fgh')).toBe('fgh');
+  });
+
+  test('verifica se decode transforma outros numeros', () => {
+    expect(decode('678')).toBe('678');
+  });
+
+  test('verifica se o parametro de enconde é igual ao tamanho do retorno', () => {
+    expect(encode('fgh').length).toEqual(3);
+  });
+
+  test('verifica se o parametro de decode é igual ao tamanho do retorno', () => {
+    expect(decode('678').length).toEqual(3);
   });
 })
