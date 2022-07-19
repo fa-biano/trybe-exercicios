@@ -70,4 +70,49 @@ const decode = (code) => {
   return finalDecode;
 }
 
-module.exports = {sum, myRemove, myFizzBuzz, encode, decode};
+const techList = (tech, person) => {
+  tech.sort();
+  let ordererList = [];
+
+  if (tech.length === 0) {
+    ordererList = 'Vazio!';
+  } else {
+    for (let index = 0; index < tech.length; index += 1) {
+      ordererList.push({
+        tech: tech[index],
+        name: person,
+      });
+    }
+  }
+  return ordererList;
+}
+
+const hydrate = (drinks) => {
+  let qtyWater = drinks.match(/\d+/g);
+  let sum = 0;
+  let toNumber = 0;
+
+  for (let index = 0; index < qtyWater.length; index += 1) {
+    toNumber = parseInt(qtyWater[index]);
+    sum += toNumber;
+  }
+
+  let recomendation;
+  if (sum > 1) {
+    recomendation = sum + ' copos de água';
+  } else {
+    recomendation = sum + ' copo de água';
+  }
+
+  return recomendation;
+}
+
+module.exports = {
+  sum,
+  myRemove,
+  myFizzBuzz,
+  encode,
+  decode,
+  techList,
+  hydrate,
+};
