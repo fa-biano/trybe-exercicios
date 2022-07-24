@@ -55,7 +55,7 @@ const books = [
     genre: 'Terror',
     author: {
       name: 'H. P. Lovecraft',
-      birthYear: 1890,
+      birthYear: 1947,
     },
     releaseYear: 1928,
   },
@@ -188,14 +188,8 @@ console.log(someBookWasReleaseOnThe80s());
 
 const authorUnique = () => {
   return books.every((elementEvery) => {
-    books.some((elementSome) => {
-      if (elementEvery.author.birthYear === elementSome.author.birthYear &&
-        elementEvery !== elementSome) {
-          return true
-        } else {
-          return false
-        }
-    })
+    return books.some((elementSome) => 
+    (elementSome.author.birthYear === elementEvery.author.birthYear && elementEvery !== elementSome))
   })
 }
 
