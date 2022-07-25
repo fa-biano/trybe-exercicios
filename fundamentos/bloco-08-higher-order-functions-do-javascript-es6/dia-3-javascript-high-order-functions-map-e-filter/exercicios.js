@@ -82,3 +82,8 @@ console.log(authorAgeWhenReleaseBook);
 
 const siFiAndPhantasyBooks = books.filter((element) => element.genre === 'Ficção Científica' || element.genre === 'Fantasia');
 console.log(siFiAndPhantasyBooks);
+
+// 🚀 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
+
+const bookReleasedMoreThan60Years = books.filter((element) => (2022 - element.releaseYear) >= 60).sort((a, b) => a.releaseYear - b.releaseYear);
+console.log(bookReleasedMoreThan60Years);
