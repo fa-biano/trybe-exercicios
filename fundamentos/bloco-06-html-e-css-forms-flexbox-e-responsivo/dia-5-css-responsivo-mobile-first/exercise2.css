@@ -1,0 +1,144 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+}
+
+header p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header nav ul {
+  display: flex;
+  width: 260px;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.aside-one {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.aside-one div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+
+.aside-one ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 480px;
+  height: 90px;
+  margin-top: 5px;
+  /* border: 2px solid red; */
+}
+
+
+.aside-one ul li {
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.aside-two {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aside-two div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+
+.aside-two ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 480px;
+  height: 42px;
+  margin-top: 5px;
+  /* border: 2px solid red; */
+}
+
+.aside-two ul li {
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.main-content h1 {
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.main-content div {
+  padding: 0 20px;
+}
+
+.main-content p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+  padding: 0 20px;
+}
+
+footer h3 {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+footer p {
+  font-size: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 360px) {
+  .aside-one, .aside-two {
+    display: none;
+  }
+}
