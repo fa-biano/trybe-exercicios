@@ -120,5 +120,15 @@ describe('Testando a API Cacau Trybe', function () {
       ]);
     });
   });
+
+  describe('Usando o método GET em /chocolate/total para buscar a qtd total de chocolates', function () {
+    it('Retornar o total de chocolates', async function () {
+      const response = await chai.request(app).get('/chocolate/total');
+      // console.log(response);
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body).to.deep.equal({ totalChocolates: 4 });
+    })
+  });
 })
 

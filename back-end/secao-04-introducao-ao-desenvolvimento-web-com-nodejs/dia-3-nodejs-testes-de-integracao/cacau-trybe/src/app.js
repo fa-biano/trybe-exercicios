@@ -7,6 +7,11 @@ app.get('/chocolate', async (req, res) => {
   res.status(200).json({ chocolates });
 });
 
+app.get('/chocolate/total', async (req, res) => {
+  const chocolates = await cacauTrybe.getAllChocolates();
+  res.status(200).json({ totalChocolates: chocolates.length });
+})
+
 app.get('/chocolate/:id', async (req, res) => {
   const { id } = req.params;
   const chocolate = await cacauTrybe.getChocolateById(Number(id));
