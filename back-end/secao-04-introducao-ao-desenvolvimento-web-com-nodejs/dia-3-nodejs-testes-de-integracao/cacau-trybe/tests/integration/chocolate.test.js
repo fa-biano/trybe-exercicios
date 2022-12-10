@@ -124,11 +124,37 @@ describe('Testando a API Cacau Trybe', function () {
   describe('Usando o método GET em /chocolate/total para buscar a qtd total de chocolates', function () {
     it('Retornar o total de chocolates', async function () {
       const response = await chai.request(app).get('/chocolate/total');
-      // console.log(response);
 
       expect(response.status).to.be.equal(200);
       expect(response.body).to.deep.equal({ totalChocolates: 4 });
     })
   });
-})
+
+  describe('Usando o método GET em /chocolate/search para retornar o chocolate buscado', function () {
+    it('Retornar os chocolates que contem Mo no nome', async function () {
+      const response = await chai.request(app).get('/chocolate/search?name=Mo');
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body.chocolates).to.deep.equal([
+        {
+          "id": 3,
+          "name": "Mon Chéri",
+          "brandId": 2
+        },
+        {
+          "id": 4,
+          "name": "Mounds",
+          "brandId": 3
+        }
+      ]);
+    });
+
+    it('Retorna array vazio quando o chocolate buscado nao existir', async function () {
+      const response = await chai.request(app).get('/chocolate/search?name=ZZZ');
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body.chocolates).to.deep.equal([]);
+    })
+  });
+});
 
