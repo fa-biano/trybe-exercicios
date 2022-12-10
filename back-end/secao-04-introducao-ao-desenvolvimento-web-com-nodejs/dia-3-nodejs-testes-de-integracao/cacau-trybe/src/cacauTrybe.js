@@ -31,7 +31,20 @@ const getChocolatesByBrand = async (brandId) => {
 const filterChocolatesByName = async (filterName) => {
   const cacauTrybe = await readCacauTrybeFile();
   return cacauTrybe.chocolates
-    .filter((chocolate) => chocolate.name.includes(filterName));
+    .filter((chocolate) => chocolate.name.toLowerCase().includes(filterName.toLowerCase()));
+};
+
+const updateChocolateById = async (id, name, brandId) => {
+  const cacauTrybe = await readCacauTrybeFile();
+  const chocolateIndex = cacauTrybe.chocolates.findIndex((chocolate) => chocolate.id === id);
+  cacauTrybe.chocolates[chocolateIndex] = {
+    id,
+    name,
+    brandId,
+  }
+
+  console.log(cacauTrybe.chocolates);
+  return cacauTrybe.chocolates;
 };
 
 module.exports = {
@@ -39,4 +52,5 @@ module.exports = {
   getChocolateById,
   getChocolatesByBrand,
   filterChocolatesByName,
+  updateChocolateById,
 };

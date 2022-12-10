@@ -127,7 +127,7 @@ describe('Testando a API Cacau Trybe', function () {
 
       expect(response.status).to.be.equal(200);
       expect(response.body).to.deep.equal({ totalChocolates: 4 });
-    })
+    });
   });
 
   describe('Usando o método GET em /chocolate/search para retornar o chocolate buscado', function () {
@@ -154,6 +154,38 @@ describe('Testando a API Cacau Trybe', function () {
 
       expect(response.status).to.be.equal(200);
       expect(response.body.chocolates).to.deep.equal([]);
+    });
+  });
+
+  describe('Usando o método PUT em /chocolate/:id para atualizar o ID 1', function () {
+    it('Retorna chocolate com ID 1 atualizado', async function () {
+      const response = await chai.request(app)
+        .put('/chocolate/1')
+        .send({ 
+          "name": "Mint Pretty Good",
+          "brandId": 2
+        });
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body).to.deep.equal({
+        "chocolate": { 
+          "id": 1,
+          "name": "Mint Pretty Good",
+          "brandId": 2
+        }
+      });
+    });
+
+    it('Retorna mensagem de erro caso chocolate nao exista', async function () {
+      const response = await chai.request(app)
+        .put('/chocolate/555')
+        .send({ 
+          "name": "Mint Pretty Good",
+          "brandId": 2
+        });
+
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal({ message: 'Chocolate not found' });
     })
   });
 });
