@@ -37,14 +37,21 @@ const filterChocolatesByName = async (filterName) => {
 const updateChocolateById = async (id, name, brandId) => {
   const cacauTrybe = await readCacauTrybeFile();
   const chocolateIndex = cacauTrybe.chocolates.findIndex((chocolate) => chocolate.id === id);
-  cacauTrybe.chocolates[chocolateIndex] = {
-    id,
-    name,
-    brandId,
+
+  let updateChocolate = false;
+  if(cacauTrybe.chocolates[chocolateIndex]) {
+    cacauTrybe.chocolates[chocolateIndex] = {
+      id,
+      name,
+      brandId,
+    };
+    updateChocolate = cacauTrybe.chocolates[chocolateIndex]
   }
 
-  console.log(cacauTrybe.chocolates);
-  return cacauTrybe.chocolates;
+  // o return abaixo seria para escrever no arquivo cacauTrybeFile.json
+  // return cacauTrybe.chocolates;
+
+  return updateChocolate;
 };
 
 module.exports = {

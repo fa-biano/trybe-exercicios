@@ -167,12 +167,10 @@ describe('Testando a API Cacau Trybe', function () {
         });
 
       expect(response.status).to.be.equal(200);
-      expect(response.body).to.deep.equal({
-        "chocolate": { 
-          "id": 1,
-          "name": "Mint Pretty Good",
-          "brandId": 2
-        }
+      expect(response.body.chocolates).to.deep.equal({
+        "id": 1,
+        "name": "Mint Pretty Good",
+        "brandId": 2
       });
     });
 
