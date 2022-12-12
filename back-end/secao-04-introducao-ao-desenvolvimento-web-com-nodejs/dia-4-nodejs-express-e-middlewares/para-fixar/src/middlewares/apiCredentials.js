@@ -10,6 +10,8 @@ module.exports = async function apiCredentials(req, res, next) {
   const authorized = JSON.parse(authdata);
 
   if (token in authorized) {
+    // modifica o req para guardar a informação importante
+    req.teams = authorized[token];
     next(); // pode continuar
   } else {
     res.sendStatus(401); // não autorizado
