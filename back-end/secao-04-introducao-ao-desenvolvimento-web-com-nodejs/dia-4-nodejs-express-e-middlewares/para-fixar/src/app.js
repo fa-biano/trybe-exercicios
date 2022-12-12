@@ -1,6 +1,13 @@
 const express = require('express');
+
+// Por padrão, o Express vai encaminhar todos os erros lançados para serem tratados pelos middlewares de erros. 
+// No entanto, erros lançados em middlewares assíncronos não são tratados do mesmo jeito.
+// para resolver isso podemos instalar o pacote express-async-errors para mostrar os erros
+require('express-async-errors'); // não precisa definir uma variável
+
 const app = express();
 const { validateTeam } = require('./middlewares/validateTeam');
+const apiCredentials = require('./middlewares/apiCredentials');
 
 let nextId = 3;
 const teams = [
@@ -19,6 +26,7 @@ const existingId = (req, res, next) => {
 };
 
 app.use(express.json());
+app.use(apiCredentials);
 
 app.get('/teams', (req, res) => res.json(teams));
 
