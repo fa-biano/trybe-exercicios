@@ -50,14 +50,14 @@ export default class Order {
     this._discount = value;
   }
 
-  bill() {
+  bill(): number {
     const products = [...this._products];
     const prices = products.map((product) => product.price);
     const sumPrices = prices.reduce((acc, curr) => acc + curr);
     return sumPrices;
   }
 
-  billWithDiscount() {
+  billWithDiscount(): number {
     const discount = this._discount;
     const bill = this.bill();
     const discountedBill = bill - (bill * discount);
