@@ -3,18 +3,18 @@ import PlantRouter from './router/PlantRouter';
 import errorMiddleware from './middlewares/errorMiddleware';
 
 export default class App {
-  public app: express.Express;
+  private app: express.Express;
 
   constructor() {
     this.app = express();
-
+    
     this.config();
     this.routes();
-
+    
     this.app.get('/', (req: Request, res: Response) => res.json({ ok: true }));
     this.app.use(errorMiddleware);
   }
-
+  
   private routes(): void {
     this.app.use('/plants', PlantRouter);
   }
